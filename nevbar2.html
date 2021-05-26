@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple navigation menu</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&display=swap" rel="stylesheet">
+	<style>
+		*{
+			padding: 0; margin: 0;
+			box-sizing: border-box;
+			font-family: 'Antonio', sans-serif;
+		}
+
+		.wrapper{
+			background-image: linear-gradient( 135deg, #FFAA85 10%, #B3315F 100%);
+			overflow: auto;
+		}
+		
+		div{
+			background: #555;
+			width: 100%;
+			overflow: hidden; 
+
+		    position: fixed; /* Make it stick/fixed */
+		    top: 0; /* Stay on top */
+		    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+		}
+
+		a{
+			color: #fff;
+			text-decoration: none;
+			padding: 10px 20px;
+			display: block;
+			float: left;
+			text-align: center;
+			letter-spacing: 3px;
+			transition: all 0.3s ease;
+		}
+		a:hover{
+			background: #000;
+		}
+
+		section{
+			width: 50%;
+			height: 120vh;
+			margin: 100px auto;
+
+		}
+
+		p{
+			line-height: 1.7;
+			padding: 20px;
+			text-align: justify;
+		}
+
+		.icon {
+ 		 display: none;
+		}
+
+		@media(max-width: 768px){
+			/*a{
+				float: none;
+			}*/
+
+			.topnav a:not(:first-child) {
+			display: none;
+			}
+  			.topnav a.icon {
+    		float: right;
+    		display: block;
+  			}
+
+ 		    .topnav.responsive {position: relative;}
+ 		    .topnav.responsive a.icon {
+   			 position: absolute;
+   			 right: 0;
+   			 top: 0;
+  			}
+  			
+  			.topnav.responsive a {
+  			 float: none;
+  			 display: block;
+  			 text-align: left;
+  			}
+
+		}
+	
+
+	</style>
+</head>
+<body>
+		<div class="wrapper">
+		<div id="navbar" class="topnav">
+			<a href="">Home</a>
+			<a href="">Store</a>
+			<a href="">About</a>
+			<a href="">Contact</a>
+		    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    		<i class="fa fa-bars"></i>
+  			</a>
+		</div>
+
+		<section>
+
+			<h2>What is Lorem Ipsum?</h2>
+			<p>				
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			</p>
+
+			<h2>Why do we use it?</h2>
+			<p>
+				It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+			</p>
+
+		</section>
+		</div>
+
+
+<script>
+	function myFunction() {
+  var x = document.getElementById("navbar");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+</body>
+</html>
